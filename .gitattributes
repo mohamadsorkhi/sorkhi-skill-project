@@ -1,4 +1,6 @@
 * text=auto
+*.blade.php text eol=lf
+*.php text eol=lf
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored

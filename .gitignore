@@ -28,3 +28,9 @@ yarn-error.log
 Thumbs.db
 
 *.zip
+
+# Claude Code local config (machine-specific)
+.claude/settings.local.json
+
+# Large image assets (serve from CDN/storage instead)
+public/images/*.jpg
