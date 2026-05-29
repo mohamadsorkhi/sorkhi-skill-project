@@ -159,7 +159,7 @@
                     {{-- No profile yet → show creation form inline --}}
                     <div class="card role-card role-card--specialist-new h-100 mb-0 w-100">
 
-                        <div class="card-body text-center p-4 p-lg-5" id="specialist-cta">
+                        <div class="card-body text-center p-4 p-lg-5">
                             <div class="avatar-xl mx-auto mb-4">
                                 <span class="avatar-title bg-success-subtle text-success rounded-circle"
                                       style="font-size:2.2rem;">
@@ -171,34 +171,14 @@
                                 مهارت‌هایتان را ثبت کنید<br>
                                 و با پروژه‌های مناسب match شوید
                             </p>
-                            <button type="button" class="btn btn-outline-success px-4"
-                                    onclick="showForm('specialist')">
-                                <i class="ri-add-line me-1"></i>ایجاد پروفایل متخصص
-                            </button>
-                        </div>
-
-                        <div id="specialist-form" style="display:none;"
-                             class="card-body border-top pt-4">
                             <form action="{{ route('profiles.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="profile_type" value="specialist">
-                                <div class="mb-3 text-start">
-                                    <label class="form-label fw-medium">
-                                        عنوان تخصصی <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" name="headline"
-                                           class="form-control" id="specialist-headline"
-                                           placeholder="مثلاً: مهندس مکانیک متخصص در ANSYS"
-                                           required minlength="2" maxlength="255">
-                                    <div class="form-text">حداقل ۲ کاراکتر</div>
-                                </div>
-                                <button type="submit" class="btn btn-success w-100 ajax-submit">
+                                <button type="submit" class="btn btn-outline-success px-4 ajax-submit">
                                     <span class="spinner-border spinner-border-sm me-1"
                                           role="status" style="display:none;"></span>
-                                    ثبت و ورود به داشبورد
+                                    <i class="ri-add-line me-1"></i>ایجاد پروفایل متخصص
                                 </button>
-                                <button type="button" class="btn btn-link btn-sm w-100 mt-2 text-muted"
-                                        onclick="hideForm('specialist')">انصراف</button>
                             </form>
                         </div>
 
@@ -326,8 +306,6 @@
 function showForm(role) {
     document.getElementById(role + '-cta').style.display  = 'none';
     document.getElementById(role + '-form').style.display = 'block';
-    const headline = document.getElementById('specialist-headline');
-    if (role === 'specialist' && headline) headline.focus();
 }
 function hideForm(role) {
     document.getElementById(role + '-form').style.display = 'none';

@@ -45,10 +45,4 @@ class AddProfileRequest extends FormRequest
         ];
     }
 
-    public function withValidator($validator)
-    {
-        $validator->sometimes('headline', ['required'], function ($input) {
-            return ($input->profile_type ?? null) === 'specialist';
-        });
-    }
 }
